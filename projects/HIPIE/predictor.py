@@ -1,4 +1,3 @@
-      
 # Copyright (c) Facebook, Inc. and its affiliates.
 # Copied from: https://github.com/facebookresearch/detectron2/blob/master/demo/predictor.py
 import atexit
@@ -333,6 +332,8 @@ class HIPIEPredictor:
             height, width = original_image.shape[:2]
             image = self.aug.get_transform(original_image).apply_image(original_image)
             image = torch.as_tensor(image.astype("float32").transpose(2, 0, 1))
+            device = next((self.model.parameters())).device
+            image = image.to(device)
             # for HIPIE
             if task == "detection":
                 #dataset_name = "coco"

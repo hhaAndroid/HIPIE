@@ -34,8 +34,11 @@ class _DatasetCatalog(UserDict):
                 It must return the same results if called multiple times.
         """
         assert callable(func), "You must register a function with `DatasetCatalog.register`!"
-        assert name not in self, "Dataset '{}' is already registered!".format(name)
-        self[name] = func
+        if name in self:
+            return
+        else:
+            assert name not in self, "Dataset '{}' is already registered!".format(name)
+            self[name] = func
 
     def get(self, name):
         """

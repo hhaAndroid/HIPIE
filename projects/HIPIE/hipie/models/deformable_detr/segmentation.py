@@ -117,7 +117,7 @@ def sigmoid_focal_loss(inputs, targets, num_boxes, alpha: float = 0.25, gamma: f
     return loss.mean(1).sum() / num_boxes
 
 
-def token_sigmoid_binary_focal_loss(pred_logits, targets, alpha=0.25, gamma=2.0, text_mask=None, reduction=True):
+def token_sigmoid_binary_focal_loss(pred_logits, targets, alpha:float=0.25, gamma:float=2.0, text_mask=None, reduction:bool=True):
     # binary version of focal loss
     # copied from https://github.com/facebookresearch/fvcore/blob/master/fvcore/nn/focal_loss.py
     """

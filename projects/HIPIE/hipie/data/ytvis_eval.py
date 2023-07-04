@@ -11,7 +11,7 @@ import os
 from collections import OrderedDict, defaultdict
 import pycocotools.mask as mask_util
 import torch
-from pycocotools.ytvos import YTVOS
+# from pycocotools.ytvos import YTVOS
 
 import detectron2.utils.comm as comm
 from detectron2.config import CfgNode
